@@ -91,10 +91,10 @@ class WLEDPresetSelect(WLEDEntity, SelectEntity):
     @property
     def current_option(self) -> str | None:
         """Return the current selected preset."""
-        if not self.coordinator.data.state.preset_id:
+        if not self.coordinator.data.state.ps:
             return None
         if preset := self.coordinator.data.presets.get(
-            self.coordinator.data.state.preset_id
+            self.coordinator.data.state.ps
         ):
             return preset.name
         return None
